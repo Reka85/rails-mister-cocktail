@@ -4,9 +4,21 @@
   <h1>All cocktails</h1>
   <%= link_to "Add new", new_cocktail_path %>
 
-  <% @cocktails.each do |c| %>
-    <h3><%= c.name %></h3>
-    <%= link_to "Details", cocktail_path(c) %>
-  <% end %>
+  <div class="card-cocktail">
+    <div class="card-photo">
 
+
+      <% @cocktails.each do |c| %>
+        <% if c.photo? %>
+          <%= cl_image_tag c.photo.path, width: 200, height: 150, crop: :fill %>
+        <% end %>
+    </div>
+
+    <div class="card-description">
+      <% @cocktails.each do |c| %>
+        <h3><%= c.name %></h3>
+        <%= link_to "Details", cocktail_path(c) %>
+      <% end %>
+    </div>
+  </div>
 </div>
