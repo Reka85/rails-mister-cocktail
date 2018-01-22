@@ -1,5 +1,5 @@
 class CocktailsController < ApplicationController
-
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_cocktail, only: [:show]
 
   def index

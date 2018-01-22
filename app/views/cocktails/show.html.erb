@@ -3,7 +3,6 @@
 
 <h2><%= @cocktail.name %></h2>
 <%= link_to "Back to cocktails", root_path %>
-
 <% @cocktail.doses.each do |d| %>
   <% if d.id %>
     <p><%= d.description %> <%= d.ingredient.name %></p>
