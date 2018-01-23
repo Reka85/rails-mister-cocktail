@@ -62,6 +62,7 @@ gem 'autoprefixer-rails'
 
 gem 'figaro'
 gem 'devise'
+gem 'pundit'
 
 gem 'cloudinary', '1.1.7'
 gem 'attachinary', github: 'assembler/attachinary'
