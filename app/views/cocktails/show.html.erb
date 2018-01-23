@@ -3,14 +3,19 @@
 
 <h2><%= @cocktail.name %></h2>
 <%= link_to "Back to cocktails", root_path %>
-<% @cocktail.doses.each do |d| %>
-  <% if d.id %>
-    <p><%= d.description %> <%= d.ingredient.name %></p>
-    <p><%= link_to "delete", dose_path(d), method: :delete %></p>
+<% @cocktail.doses.each do |dose| %>
+  <% if dose.id %>
+    <p><%= dose.description %> <%= dose.ingredient.name %></p>
+    <% if policy(dose).destroy?  %>
+      <p><%= link_to "delete", dose_path(dose), method: :delete %></p>
+    <% end %>
     <p>**********</p>
   <% end %>
 <% end %>
 
 </div>
-<%= render 'doses/form'%>
+
+<% if @cocktail.user == current_user %>
+  <%= render 'doses/form'%>
+<% end %>
 
