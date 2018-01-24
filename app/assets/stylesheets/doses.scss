@@ -1,3 +1,15 @@
 // Place all the styles related to the Doses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.dose{
+  background-color: white;
+  border-radius: 3px;
+  display:flex;
+  align-items: center;
+  padding-top:5px;
+  margin-bottom: 4px;
+  flex-direction:column;
+}
+.ingredients{
+  margin-top: 10px;
+}
