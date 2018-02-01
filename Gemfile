@@ -64,8 +64,9 @@ gem 'autoprefixer-rails'
 gem 'figaro'
 gem 'devise'
 gem 'pundit'
+gem 'pg_search'
 
 gem 'cloudinary', '1.1.7'
 gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
-#gem 'coffee-rails'
+
