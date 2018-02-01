@@ -1,6 +1,6 @@
 class CocktailsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
-  before_action :set_cocktail, only: [:show]
+  before_action :set_cocktail, only: [:show, :destroy]
 
   def index
     @cocktails = policy_scope(Cocktail)
@@ -26,6 +26,11 @@ class CocktailsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @cocktail.destroy
+    redirect_to root_path
   end
 
   private
