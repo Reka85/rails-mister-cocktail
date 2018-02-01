@@ -14,4 +14,15 @@ class CocktailPolicy < ApplicationPolicy
   def index?
     true
   end
+
+  def destroy?
+    # admin or user can destroy
+    is_user_the_owner? || user.admin
+  end
+
+  private
+
+  def is_user_the_owner?
+    user == record.user
+  end
 end
