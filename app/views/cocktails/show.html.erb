@@ -1,7 +1,8 @@
 
 <div class="container">
   <h2><%= @cocktail.name %></h2>
-  <%= link_to "Back to cocktails", root_path %>
+  <p><%= link_to "My cocktails", my_cocktails_path %></p>
+
   <% if policy(@cocktail).destroy?  %>
     <p><%= link_to "delete", cocktail_path(@cocktail), method: :delete %></p>
   <% end %>
