@@ -2,7 +2,7 @@
 <div class="container">
   <% if user_signed_in? %>
       <p>Hello <%= current_user.username %>!</p>
-      <%= link_to "My cocktails", user_path(current_user) %>
+      <%= link_to "My cocktails", my_cocktails_path %>
     <% end %>
   <h1>All cocktails</h1>
   <%= link_to "Add new", new_cocktail_path %>

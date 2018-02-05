@@ -1,11 +1,18 @@
 <div class="container">
-  <h2>My cocktails</h2>
-  <%= @user.username %>
+  <h3><%= @user.username %>'s cocktails</h3>
   <% if @user.cocktails.any? %>
-    <ul>
+    <div>
       <% @user.cocktails.each do |cocktail| %>
-        <li><%= cocktail.name %></li>
+        <div style="padding: 10px 10px;"><%= link_to cocktail.name, cocktail_path(cocktail) %>
+          <% if cocktail.ingredients.any? %>
+            <ul>
+              <% cocktail.ingredients.each do  |i| %>
+                <li><%= i.name %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        </div>
       <% end %>
-    </ul>
+    </div>
   <% end %>
 </div>
