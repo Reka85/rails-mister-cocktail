@@ -2,9 +2,11 @@
 <div class="container">
   <% if user_signed_in? %>
       <p>Hello <%= current_user.username %>!</p>
+      <%= link_to "My cocktails", user_path(current_user) %>
     <% end %>
   <h1>All cocktails</h1>
   <%= link_to "Add new", new_cocktail_path %>
+
 
   <%= form_tag cocktails_path, method: :get do %>
     <%= text_field_tag :query,

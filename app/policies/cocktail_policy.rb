@@ -10,7 +10,7 @@ class CocktailPolicy < ApplicationPolicy
 
 
   def create?
-    return true
+    true
   end
 
   def index?

@@ -1,0 +1,11 @@
+<div class="container">
+  <h2>My cocktails</h2>
+  <%= @user.username %>
+  <% if @user.cocktails.any? %>
+    <ul>
+      <% @user.cocktails.each do |cocktail| %>
+        <li><%= cocktail.name %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>
