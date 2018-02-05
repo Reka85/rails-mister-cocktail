@@ -3,8 +3,13 @@ class CocktailsController < ApplicationController
   before_action :set_cocktail, only: [:show, :destroy]
 
   def index
-    @cocktails = policy_scope(Cocktail)
-    authorize Cocktail
+    if params[:query].present?
+      @cocktails = policy_scope(Cocktail).where("name ILIKE ?", "%#{params[:query]}%")
+      authorize Cocktail
+    else
+      @cocktails = policy_scope(Cocktail)
+      authorize Cocktail
+    end
   end
 
 

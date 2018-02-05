@@ -2,7 +2,6 @@ class Cocktail < ApplicationRecord
   include PgSearch
   pg_search_scope :search_by_name,
     against: [:name],
-    associated_against: { ingredients: [:name] },
     using: { tsearch: { prefix: true }}
 
   has_many :doses, dependent: :destroy
