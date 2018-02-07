@@ -10,11 +10,16 @@ class CocktailPolicy < ApplicationPolicy
 
 
   def create?
-    true
+    #any logged in user can create a restaurant
+    !user.nil?
   end
 
   def index?
     true
+  end
+
+  def update?
+    is_user_the_owner? || user.admin
   end
 
   def destroy?
