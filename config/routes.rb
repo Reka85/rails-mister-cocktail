@@ -9,4 +9,9 @@ Rails.application.routes.draw do
   end
   mount Attachinary::Engine => "/attachinary"
 
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :cocktails, only: [:index]
+    end
+  end
 end
