@@ -1,8 +1,8 @@
 <div class="container">
   <h3><%= @user.username %>'s cocktails</h3>
-  <% if @user.cocktails.any? %>
+  <% if @cocktails.any? %>
     <div>
-      <% @user.cocktails.each do |cocktail| %>
+      <% @cocktails.each do |cocktail| %>
         <div style="padding: 10px 10px;"><%= link_to cocktail.name, cocktail_path(cocktail) %>
           <% if cocktail.ingredients.any? %>
             <ul>

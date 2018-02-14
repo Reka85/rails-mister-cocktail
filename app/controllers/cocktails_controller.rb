@@ -4,7 +4,7 @@ class CocktailsController < ApplicationController
 
   def index
     if params[:query].present?
-      @cocktails = policy_scope(Cocktail).where("name ILIKE ?", "%#{params[:query]}%").includes(:ingredient, :dose)
+      @cocktails = policy_scope(Cocktail).where("name ILIKE ?", "%#{params[:query]}%")
       authorize Cocktail
     else
       @cocktails = policy_scope(Cocktail)
@@ -14,6 +14,7 @@ class CocktailsController < ApplicationController
 
   def show
     @dose = Dose.new
+    @cocktail.doses = @cocktail.doses.includes(:ingredient)
   end
 
   def new
