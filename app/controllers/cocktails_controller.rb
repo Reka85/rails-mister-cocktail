@@ -38,6 +38,14 @@ class CocktailsController < ApplicationController
     redirect_to root_path
   end
 
+  protected
+
+  def resource_not_found
+    message = "The cocktail you are looking for could not be found"
+    flash[:alert] = message
+    redirect_to root_path
+  end
+
   private
 
   def set_cocktail
