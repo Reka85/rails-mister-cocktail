@@ -12,7 +12,7 @@ class DosePolicy < ApplicationPolicy
 
   # only creator of dose can delete it or admin
   def destroy?
-    is_user_the_owner? || user.admin
+    is_user_the_owner? || (user && user.admin)
   end
 
   private

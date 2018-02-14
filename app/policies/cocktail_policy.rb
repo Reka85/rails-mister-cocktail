@@ -24,7 +24,7 @@ class CocktailPolicy < ApplicationPolicy
 
   def destroy?
     # admin or user can destroy
-    is_user_the_owner? || user.admin
+    is_user_the_owner? || (user && user.admin)
   end
 
   private
